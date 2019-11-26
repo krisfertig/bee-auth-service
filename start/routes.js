@@ -22,6 +22,9 @@ const Route = use('Route')
 
 Route.post('/users', 'UserController.create')
 
+Route.get('/users', 'UserController.show')
+	.middleware('auth')
+
 Route.post('/sessions', 'SessionController.create')
 
 Route.resource('userProfiles', 'UserProfileController')
