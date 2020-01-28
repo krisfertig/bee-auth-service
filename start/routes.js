@@ -16,17 +16,19 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-//Route.get('/', () => {
-//  return { greeting: 'Hello world in JSON' }
-//})
+const mainRoute = '/api/v1';
 
-Route.post('/users', 'UserController.create')
+Route.get('/', () => {
+	return { greeting: 'Hello world in JSON' }
+})
 
-Route.get('/users', 'UserController.show')
+Route.post(`${mainRoute}/users`, 'UserController.create')
+
+Route.get(`${mainRoute}/users`, 'UserController.show')
 	.middleware('auth')
 
-Route.post('/sessions', 'SessionController.create')
+Route.post(`${mainRoute}/sessions`, 'SessionController.create')
 
-Route.resource('userProfiles', 'UserProfileController')
+Route.resource(`${mainRoute}/userProfiles`, 'UserProfileController')
 	.apiOnly()
 	.middleware('auth')

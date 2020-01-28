@@ -1,7 +1,7 @@
 'use strict'
 const axios = use('axios');
 
-const GRAFANA_URL = 'http://admin:kmaedelkris@localhost:1234';
+const GRAFANA_URL = 'https://admin:kmaedelkris@localhost:1234';
 
 class SessionController {
   async create ({ request, auth }) { 
